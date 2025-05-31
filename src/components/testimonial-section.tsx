@@ -171,7 +171,7 @@ export const TestimonialSection: React.FC = () => {
   }, [testimonials.length]);
 
   return (
-    <Box mb={4} position="relative" w="full">
+    <Box mb={4} position="relative" w="full" pb={{ base: 4, lg: 0 }}>
       <Flex align="flex-end" gap={{ base: 2, md: 4, lg: 12 }}>
         <Box flexShrink={0} mb={{ base: 0, lg: 0 }}>
           <Box

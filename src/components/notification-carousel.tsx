@@ -214,7 +214,7 @@ export const NotificationCarousel: React.FC = () => {
         responsive={responsive}
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={5000}
+        autoPlaySpeed={3000}
         centerMode={false}
         // partialVisible={true}
         removeArrowOnDeviceType={["xl", "lg", "md", "sm", "base", "xs"]}

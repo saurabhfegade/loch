@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.gradient-bg {
+  background: linear-gradient(to bottom right, #19073B, #2D65F1, #1FA911);
+}
+
+.notification-card {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+.testimonial-card {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.signup-section {
+  background-color: white;
+}
+
+.carousel-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-container > div {
+  scroll-snap-align: start; /* Ensures cards snap properly */
+}
+
+.testimonial-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.testimonial-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .gradient-bg {
+    background: linear-gradient(to bottom, #19073B, #2D65F1, #1FA911);
+  }
+  
+  /* Ensure carousel works on mobile */
+  .carousel-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  /* Ensure testimonials work on mobile */
+  .testimonial-container {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Ensure proper scrolling on iOS */
+.carousel-container, .testimonial-container {
+  -webkit-overflow-scrolling: touch;
+}

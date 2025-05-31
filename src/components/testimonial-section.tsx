@@ -7,9 +7,9 @@ import {
   Icon,
   HStack,
   Image,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const MotionBox = motion(Box);
 
@@ -23,12 +23,13 @@ const Testimonial: React.FC<TestimonialProps> = ({ name, title, quote }) => {
   const textRef = React.useRef<HTMLParagraphElement>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const [dynamicWidth, setDynamicWidth] = React.useState(280);
+  const [isMobile] = useMediaQuery(["(max-width: 768px)"]);
 
   React.useEffect(() => {
     if (textRef.current && containerRef.current) {
       // Calculate width based on text length
       const minWidth = 280;
-      const maxWidth = 600;
+      const maxWidth = isMobile ? 300 : 600;
 
       // Use text length as a basis for width calculation
       const textLength = quote.length;
@@ -41,7 +42,6 @@ const Testimonial: React.FC<TestimonialProps> = ({ name, title, quote }) => {
       } else if (textLength >= 200) {
         calculatedWidth = maxWidth;
       } else {
-        // Linear interpolation between min and max based on text length
         const ratio = (textLength - 80) / (200 - 80);
         calculatedWidth = minWidth + ratio * (maxWidth - minWidth);
       }
@@ -55,7 +55,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ name, title, quote }) => {
       ref={containerRef}
       bg="white"
       borderRadius="xl"
-      p={{ base: 3, lg: "20px" }}
+      p={{ base: "20px", lg: "20px" }}
       w={`${dynamicWidth}px`}
       h={{ base: "136px", lg: "136px" }}
       boxShadow="md"
@@ -72,7 +72,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ name, title, quote }) => {
       </HStack>
       <Text
         ref={textRef}
-        fontSize={16}
+        fontSize={{ base: "14px", lg: "16px" }}
         fontWeight={500}
         color="#1D2129"
         lineHeight="1.2"
@@ -172,9 +172,12 @@ export const TestimonialSection: React.FC = () => {
 
   return (
     <Box mb={4} position="relative" w="full">
-      <Flex align="flex-end" gap={{ base: 4, lg: 12 }}>
+      <Flex align="flex-end" gap={{ base: 2, md: 4, lg: 12 }}>
         <Box flexShrink={0} mb={{ base: 0, lg: 0 }}>
-          <Box w={"60px"} h={"60px"}>
+          <Box
+            w={{ base: "36px", lg: "60px" }}
+            h={{ base: "36px", lg: "60px" }}
+          >
             <Image src="/loch-logo.svg" alt="logo" w="full" h="full" />
           </Box>
         </Box>
@@ -217,14 +220,6 @@ export const TestimonialSection: React.FC = () => {
             </MotionBox>
           ))}
         </Flex>
-      </Flex>
-
-      <Flex justify="center" mt={4} display={{ base: "flex", lg: "none" }}>
-        <HStack color="whiteAlpha.700" fontSize="xs" gap={1}>
-          <Icon as={ArrowLeft} />
-          <Text>Swipe to see more</Text>
-          <Icon as={ArrowRight} />
-        </HStack>
       </Flex>
     </Box>
   );

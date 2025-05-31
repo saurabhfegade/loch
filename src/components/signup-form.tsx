@@ -35,14 +35,14 @@ export const SignupForm: React.FC = () => {
     <VStack
       justify="center"
       align="center"
-      minH="500px"
+      // minH="500px"
       h="full"
-      px={{ base: 4, lg: 6 }}
+      px={{ base: 8, lg: 6 }}
       py={{ base: 8, lg: 0 }}
     >
       <MotionBox
         w="full"
-        maxW={{ base: "xs", lg: "sm" }}
+        maxW={{ base: "auto", md: "md", lg: "sm" }}
         transform={isHovered || isFocused ? "scale(1.02)" : "scale(1)"}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export const SignupForm: React.FC = () => {
       >
         <Heading
           as="h2"
-          fontSize={{ base: "2xl", lg: "39px" }}
+          fontSize={{ base: "24px", lg: "39px" }}
           lineHeight="1.2"
           fontWeight={500}
           color="#B0B1B3"
@@ -68,14 +68,25 @@ export const SignupForm: React.FC = () => {
           <Box mb={4}>
             <Input
               type="email"
-              w="340px"
+              w={{ base: "full", lg: "340px" }}
+              h="60px"
               placeholder="Your email address"
+              _placeholder={{
+                color: "#CACBCC",
+                fontSize: "14px",
+                fontWeight: 400,
+                lineHeight: "1.2",
+                letterSpacing: "0px",
+                fontFamily: "Inter",
+                paddingLeft: "10px",
+              }}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
               size="md"
-              borderColor={error ? "red.500" : undefined}
+              borderColor={error ? "red.500" : "#E5E5E6"}
+              borderRadius="8px"
             />
             {error && (
               <Text color="red.500" fontSize="sm" mt={1}>
@@ -86,7 +97,7 @@ export const SignupForm: React.FC = () => {
 
           <Button
             type="submit"
-            w="340px"
+            w={{ base: "full", lg: "340px" }}
             h="60px"
             bg="#19191A"
             _hover={{ bg: "black" }}
@@ -107,7 +118,7 @@ export const SignupForm: React.FC = () => {
         <Text
           // textAlign="center"
           color="#19191A"
-          mt={6}
+          mt={8}
           fontSize="16px"
           fontWeight={600}
           lineHeight="1.2"

@@ -21,6 +21,7 @@ interface NotificationCardProps {
   title: React.ReactNode;
   content: React.ReactNode;
   rightContent: React.ReactNode;
+  isFirst?: boolean;
 }
 
 const NotificationCard: React.FC<NotificationCardProps> = ({
@@ -28,16 +29,21 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
   title,
   content,
   rightContent,
+  isFirst = false,
 }) => {
   return (
     <Box
-      bg="white"
       borderRadius="xl"
-      p={{ base: 3, lg: 4 }}
+      p={{ base: 4, lg: 4 }}
       // minW="240px"
       w="190px"
       h="171px"
       boxShadow="lg"
+      background={
+        isFirst
+          ? "linear-gradient(180deg, #ffffff 45.5%,rgba(22, 93, 255, 0.8) 240%)"
+          : "white"
+      }
       // mr={"20px !important"}
       // flexShrink={0}
     >
@@ -62,17 +68,12 @@ export const NotificationCarousel: React.FC = () => {
           fontWeight={500}
           color="#19191A"
           lineHeight={1.2}
+          my={4}
         >
           We'll be sending notifications to you here
         </Heading>
       ),
-      content: (
-        <Box p={2} bg="gray.100" borderRadius="md">
-          <Text fontSize="xs" color="gray.600">
-            hello@gmail.com
-          </Text>
-        </Box>
-      ),
+      content: <Box p={4} bg="gray.100" borderRadius="md"></Box>,
       rightContent: (
         <Text fontSize="xs" color="gray.700" fontWeight="medium">
           Save
@@ -82,7 +83,15 @@ export const NotificationCarousel: React.FC = () => {
     {
       icon: BarChart2,
       title: (
-        <Heading as="h3" fontSize="sm" fontWeight={500} color="#19191A" mb={2}>
+        <Heading
+          mt={8}
+          mb={2}
+          as="h3"
+          fontSize="sm"
+          fontWeight={500}
+          color="#19191A"
+          lineHeight={1.2}
+        >
           Notify me when any whale moves more than
         </Heading>
       ),
@@ -114,26 +123,40 @@ export const NotificationCarousel: React.FC = () => {
       icon: Clock,
       title: (
         <Heading
+          mt={6}
+          mb={2}
           as="h3"
           fontSize="sm"
-          fontWeight="medium"
-          color="gray.800"
-          // mb={2}
+          fontWeight={500}
+          color="#19191A"
+          lineHeight={1.2}
         >
           Notify me when any wallet dormant for
         </Heading>
       ),
       content: (
-        <Flex align="center">
-          <Box bg="gray.100" borderRadius="md" px={2} py={1}>
-            <HStack gap={1}>
-              <Text fontSize="xs" color="gray.700" fontWeight="medium">
-                {"> 30 days"}
-              </Text>
-              <Icon as={ChevronDown} boxSize={3} />
-            </HStack>
-          </Box>
-        </Flex>
+        <Box>
+          <Flex align="center">
+            <Box bg="gray.100" borderRadius="md" px={2} py={1}>
+              <HStack gap={1}>
+                <Text fontSize="xs" color="gray.700" fontWeight="medium">
+                  {"> 30 days"}
+                </Text>
+                <Icon as={ChevronDown} boxSize={3} />
+              </HStack>
+            </Box>
+          </Flex>
+          <Heading
+            mt={2}
+            as="h3"
+            fontSize="sm"
+            fontWeight={500}
+            color="#19191A"
+            lineHeight={1.2}
+          >
+            becomes active
+          </Heading>
+        </Box>
       ),
       rightContent: (
         <Checkbox.Root
@@ -171,14 +194,22 @@ export const NotificationCarousel: React.FC = () => {
       partialVisibilityGutter: 40,
     },
     base: {
-      breakpoint: { max: 375, min: 0 },
+      breakpoint: { max: 375, min: 350 },
+      items: 1.5,
+      partialVisibilityGutter: 40,
+    },
+    xs: {
+      breakpoint: { max: 350, min: 0 },
       items: 1,
       partialVisibilityGutter: 40,
     },
   };
 
   return (
-    <Box position="relative" w={300}>
+    <Box
+      position="relative"
+      w={{ base: "95vw", sm: "90vw", md: "300px", lg: "300px" }}
+    >
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -186,7 +217,7 @@ export const NotificationCarousel: React.FC = () => {
         autoPlaySpeed={5000}
         centerMode={false}
         // partialVisible={true}
-        removeArrowOnDeviceType={["xl", "lg", "md", "sm", "base"]}
+        removeArrowOnDeviceType={["xl", "lg", "md", "sm", "base", "xs"]}
         customTransition="transform 300ms ease-in-out"
         transitionDuration={300}
         containerClass="carousel-container"
@@ -206,6 +237,7 @@ export const NotificationCarousel: React.FC = () => {
               title={card.title}
               content={card.content}
               rightContent={card.rightContent}
+              isFirst={index === 0}
             />
           </MotionBox>
         ))}

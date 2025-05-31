@@ -8,14 +8,15 @@ const MotionBox = motion(Box);
 export const WatchSection: React.FC = () => {
   return (
     <Flex
-      direction={{ base: "column", lg: "row" }}
+      direction={{ base: "column-reverse", lg: "row" }}
       justify="space-between"
       align="flex-start"
       h="full"
+      pr={{ base: 4, sm: 4, md: 8, lg: 0 }}
     >
       <MotionBox
         order={{ base: 1, lg: 2 }}
-        pr={{ base: 0, lg: 12 }}
+        pr={{ base: 0, sm: 0, md: 0, lg: 8, xl: 12 }}
         mb={{ base: 6, lg: 0 }}
         ml={{ base: 0, lg: 6 }}
         w={{ base: "full", lg: "auto" }}
@@ -26,31 +27,41 @@ export const WatchSection: React.FC = () => {
         flexDirection="column"
         // justifyContent="flex-end"
         alignItems="flex-end"
-        gap={4}
+        gap={{ base: 2, lg: 4 }}
       >
         <Flex align="center">
           <Icon as={Eye} color="white" boxSize={{ base: 6, lg: 8 }} />
         </Flex>
         <Heading
-          as="h2"
-          fontSize={{ base: "2xl", lg: "3xl" }}
-          fontWeight="semibold"
-          color="white"
-          // mb={3}
-          textAlign="right"
-          fontFamily="Inter"
+          as="h1"
+          fontSize={{
+            base: "20px",
+            sm: "24px",
+            md: "26px",
+            lg: "26px",
+            xl: "32px",
+          }}
+          fontWeight={500}
           lineHeight="1.2"
+          color="#F2F2F2"
+          textShadow="0px 4px 4px #00000040"
+          // mb={{ base: 3, lg: 4 }}
+          fontFamily="Inter"
+          textAlign="right"
         >
           Watch what the
           <br />
           whales are doing
         </Heading>
         <Text
-          color="whiteAlpha.800"
-          fontSize={{ base: "xs", lg: "sm" }}
-          textAlign="right"
+          color="#F2F2F2"
+          fontSize={{ base: "sm", lg: "14px", xl: "16px" }}
+          fontWeight={500}
+          maxW="md"
           fontFamily="Inter"
           lineHeight="1.2"
+          textAlign="right"
+          opacity={0.7}
         >
           All whales are not equal. Know exactly
           <br /> what the whales impacting YOUR <br /> portfolio are doing.
@@ -62,6 +73,7 @@ export const WatchSection: React.FC = () => {
         borderRadius="xl"
         boxShadow="lg"
         w={{ base: "full", lg: "320px", xl: "335px" }}
+        mb={{ base: 4, lg: 0 }}
         // h="306px"
       >
         <Image

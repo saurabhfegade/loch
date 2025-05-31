@@ -8,7 +8,7 @@ import { WatchSection } from "./components/watch-section";
 const App: React.FC = () => {
   return (
     <Flex
-      direction={{ base: "column", md: "column", lg: "row" }}
+      direction={{ base: "column-reverse", md: "column-reverse", lg: "row" }}
       minH="100vh"
       w="full"
       h="100vh"
@@ -19,10 +19,29 @@ const App: React.FC = () => {
         w={{ base: "full", lg: "56%" }}
         position="relative"
         overflowY={{ base: "auto", lg: "auto" }}
-        h="full"
-        pl={{ base: 0, lg: 8, xl: 12 }}
+        h={{ base: "60%", lg: "full" }}
+        pl={{ base: 4, sm: 4, md: 8, lg: 8, xl: 12 }}
         bg="url('/bg-gradient.svg') no-repeat center center"
         bgSize="cover"
+        css={{
+          "&::-webkit-scrollbar": {
+            width: "4px",
+            background: "#F2F2F2",
+            borderRadius: "10px",
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "#f1f1f1",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            background: "#B0B1B3",
+            borderRadius: "10px",
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            background: "#888",
+          },
+          scrollbarWidth: "thin", // Firefox
+          scrollbarColor: "#2F15D0 #F2F2F2", // Firefox
+        }}
       >
         <Container
           maxW="container.xl"
@@ -33,7 +52,7 @@ const App: React.FC = () => {
           flexDirection="column"
         >
           <Flex
-            direction={{ base: "column", lg: "row" }}
+            direction={{ base: "column", md: "row", lg: "row" }}
             align="start"
             justify="space-between"
             w="full"
@@ -43,7 +62,7 @@ const App: React.FC = () => {
               w={{ base: "full", lg: "50%" }}
               mb={{ base: 8, lg: 0 }}
               flexDirection="column"
-              gap={{ lg: 4, xl: 6 }}
+              gap={{ base: 4, lg: 4, xl: 6 }}
             >
               <Image
                 src="/bell-icon-1.svg"
@@ -60,9 +79,9 @@ const App: React.FC = () => {
                   lg: "26px",
                   xl: "32px",
                 }}
-                fontWeight="semibold"
+                fontWeight={500}
                 lineHeight="1.2"
-                color="white"
+                color="#F2F2F2"
                 textShadow="0px 4px 4px #00000040"
                 // mb={{ base: 3, lg: 4 }}
                 fontFamily="Inter"
@@ -75,9 +94,11 @@ const App: React.FC = () => {
               <Text
                 color="#F2F2F2"
                 fontSize={{ base: "sm", lg: "14px", xl: "16px" }}
+                fontWeight={500}
                 maxW="md"
                 fontFamily="Inter"
                 lineHeight="1.2"
+                opacity={0.7}
               >
                 Find out when a certain whale moves
                 <br /> more than any preset amount on-chain or
@@ -103,10 +124,11 @@ const App: React.FC = () => {
             mt={{ base: 8, lg: 10 }}
             borderTop="1px"
             borderColor="whiteAlpha.200"
+            pb={12}
             // pt={4}
             // pb={{ base: 0, lg: 12 }}
           >
-            <Box pr={{ base: 0, lg: 12 }}>
+            <Box pr={{ base: 4, sm: 4, md: 8, lg: 8, xl: 12 }}>
               <Heading
                 as="h2"
                 fontSize={{ base: "xl", lg: "2xl" }}
@@ -127,7 +149,7 @@ const App: React.FC = () => {
       <Box
         w={{ base: "full", lg: "44%" }}
         bg="white"
-        h="100vh"
+        h={{ base: "40%", lg: "100vh" }}
         overflowY="auto"
       >
         <SignupForm />

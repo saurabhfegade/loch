@@ -35,14 +35,15 @@ export const SignupForm: React.FC = () => {
     <VStack
       justify="center"
       align="center"
+      w="full"
       // minH="500px"
       h="full"
       px={{ base: 8, lg: 6 }}
       py={{ base: 8, lg: 0 }}
     >
       <MotionBox
-        w="full"
-        maxW={{ base: "auto", md: "md", lg: "sm" }}
+        w={{ base: "full", md: "md", lg: "auto" }}
+        // maxW={{ base: "auto", md: "md", lg: "sm" }}
         transform={isHovered || isFocused ? "scale(1.02)" : "scale(1)"}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -57,7 +58,7 @@ export const SignupForm: React.FC = () => {
           fontWeight={500}
           color="#B0B1B3"
           letterSpacing="0px"
-          mb={4}
+          mb={6}
         >
           Sign up for
           <br />
@@ -114,19 +115,18 @@ export const SignupForm: React.FC = () => {
             Get started
           </Button>
         </form>
-
-        <Text
-          // textAlign="center"
-          color="#19191A"
-          mt={8}
-          fontSize="16px"
-          fontWeight={600}
-          lineHeight="1.2"
-          letterSpacing="0px"
-        >
-          You&apos;ll receive an email with an invite link to join.
-        </Text>
       </MotionBox>
+      <Text
+        // textAlign="center"
+        color="#19191A"
+        mt={8}
+        fontSize={{ base: "14px", lg: "16px" }}
+        fontWeight={600}
+        lineHeight="1.2"
+        letterSpacing="0px"
+      >
+        You&apos;ll receive an email with an invite link to join.
+      </Text>
     </VStack>
   );
 };

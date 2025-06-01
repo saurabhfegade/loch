@@ -121,10 +121,10 @@ const App: React.FC = () => {
           </Box>
 
           <Box
-            mt={{ base: 8, lg: 8 }}
+            mt={{ base: 8, lg: 4 }}
             borderTop="1px"
             borderColor="whiteAlpha.200"
-            pb={12}
+            pb={8}
             // pt={4}
             // pb={{ base: 0, lg: 12 }}
           >
@@ -140,7 +140,7 @@ const App: React.FC = () => {
               >
                 Testimonials
               </Heading>
-              <Box h="1px" w="full" bg="#E5E5E680" mt={6} mb={12} />
+              <Box h="1px" w="full" bg="#E5E5E680" mt={6} mb={10} />
             </Box>
             <TestimonialSection />
           </Box>

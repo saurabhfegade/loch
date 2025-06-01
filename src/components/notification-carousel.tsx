@@ -210,17 +210,10 @@ export const NotificationCarousel: React.FC = () => {
       position="relative"
       w={{ base: "95vw", sm: "95vw", md: "360px", lg: "360px", xl: "360px" }}
     >
-      {/* <style>
-        {`
-          .carousel-container {
-            width: 320px !important;
-          }
-        `}
-      </style> */}
       <Carousel
         responsive={responsive}
         infinite={true}
-        // autoPlay={true}
+        autoPlay={true}
         autoPlaySpeed={3000}
         centerMode={false}
         // partialVisible={true}

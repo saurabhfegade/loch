@@ -175,7 +175,7 @@ export const NotificationCarousel: React.FC = () => {
   const responsive = {
     xl: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 1.5,
+      items: 1.75,
       partialVisibilityGutter: 40,
     },
     lg: {
@@ -185,17 +185,17 @@ export const NotificationCarousel: React.FC = () => {
     },
     md: {
       breakpoint: { max: 768, min: 640 },
-      items: 1.5,
+      items: 1.75,
       partialVisibilityGutter: 40,
     },
     sm: {
       breakpoint: { max: 640, min: 375 },
-      items: 1.5,
+      items: 1.8,
       partialVisibilityGutter: 40,
     },
     base: {
       breakpoint: { max: 375, min: 350 },
-      items: 1.5,
+      items: 1.75,
       partialVisibilityGutter: 40,
     },
     xs: {
@@ -208,12 +208,19 @@ export const NotificationCarousel: React.FC = () => {
   return (
     <Box
       position="relative"
-      w={{ base: "95vw", sm: "90vw", md: "300px", lg: "300px" }}
+      w={{ base: "95vw", sm: "95vw", md: "360px", lg: "360px", xl: "360px" }}
     >
+      {/* <style>
+        {`
+          .carousel-container {
+            width: 320px !important;
+          }
+        `}
+      </style> */}
       <Carousel
         responsive={responsive}
         infinite={true}
-        autoPlay={true}
+        // autoPlay={true}
         autoPlaySpeed={3000}
         centerMode={false}
         // partialVisible={true}
@@ -230,7 +237,7 @@ export const NotificationCarousel: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.2 }}
             mr={index !== cards.length - 1 ? "20px" : 0}
-            // width="370px !important"
+            width="300px !important"
           >
             <NotificationCard
               icon={card.icon}

@@ -20,7 +20,7 @@ const App: React.FC = () => {
         position="relative"
         overflowY={{ base: "auto", lg: "auto" }}
         h={{ base: "60%", lg: "full" }}
-        pl={{ base: 4, sm: 4, md: 8, lg: 8, xl: 12 }}
+        pl={{ base: 4, sm: 4, md: 8, lg: 8, xl: 14 }}
         bg="url('/bg-gradient.svg') no-repeat center center"
         bgSize="cover"
         css={{
@@ -128,7 +128,7 @@ const App: React.FC = () => {
             // pt={4}
             // pb={{ base: 0, lg: 12 }}
           >
-            <Box pr={{ base: 4, sm: 4, md: 8, lg: 8, xl: 12 }}>
+            <Box pr={{ base: 4, sm: 4, md: 8, lg: 8, xl: 14 }}>
               <Heading
                 as="h2"
                 fontSize={{ base: "xl", lg: "25px" }}

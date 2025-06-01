@@ -40,7 +40,7 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
       boxShadow="lg"
       background={
         isFirst
-          ? "linear-gradient(180deg, #ffffff 45.5%,rgba(22, 93, 255, 0.8) 240%)"
+          ? "linear-gradient(180deg, #ffffff 45.5%,rgba(22, 93, 255, 0.5) 240%)"
           : "white"
       }
     >

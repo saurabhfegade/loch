@@ -16,7 +16,7 @@ export const WatchSection: React.FC = () => {
     >
       <MotionBox
         order={{ base: 1, lg: 2 }}
-        pr={{ base: 0, sm: 0, md: 0, lg: 8, xl: 12 }}
+        pr={{ base: 0, sm: 0, md: 0, lg: 8, xl: 14 }}
         mb={{ base: 6, lg: 0 }}
         ml={{ base: 0, lg: 6 }}
         w={{ base: "full", lg: "auto" }}

@@ -116,12 +116,12 @@ const App: React.FC = () => {
             </Box>
           </Flex>
 
-          <Box mt={{ base: 8, lg: 10 }} flexGrow={1}>
+          <Box mt={{ base: 8, lg: 12, xl: 16 }} flexGrow={1}>
             <WatchSection />
           </Box>
 
           <Box
-            mt={{ base: 8, lg: 10 }}
+            mt={{ base: 8, lg: 8 }}
             borderTop="1px"
             borderColor="whiteAlpha.200"
             pb={12}

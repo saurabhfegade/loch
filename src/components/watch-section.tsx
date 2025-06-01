@@ -28,10 +28,9 @@ export const WatchSection: React.FC = () => {
         // justifyContent="flex-end"
         alignItems="flex-end"
         gap={{ base: 2, lg: 4 }}
+        mt={4}
       >
-        <Flex align="center">
-          <Icon as={Eye} color="white" boxSize={{ base: 6, lg: 8 }} />
-        </Flex>
+        <Image src="/eye-icon.svg" alt="Eye Icon" w={"30px"} h={"20px"} />
         <Heading
           as="h1"
           fontSize={{

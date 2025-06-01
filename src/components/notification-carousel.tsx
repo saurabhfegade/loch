@@ -5,7 +5,6 @@ import {
   Heading,
   Text,
   Icon,
-  Button,
   HStack,
   Checkbox,
 } from "@chakra-ui/react";
@@ -22,6 +21,7 @@ interface NotificationCardProps {
   content: React.ReactNode;
   rightContent: React.ReactNode;
   isFirst?: boolean;
+  isVisibleFirst?: boolean;
 }
 
 const NotificationCard: React.FC<NotificationCardProps> = ({
@@ -35,7 +35,6 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
     <Box
       borderRadius="xl"
       p={{ base: 4, lg: 4 }}
-      // minW="240px"
       w="190px"
       h="171px"
       boxShadow="lg"
@@ -44,8 +43,6 @@ const NotificationCard: React.FC<NotificationCardProps> = ({
           ? "linear-gradient(180deg, #ffffff 45.5%,rgba(22, 93, 255, 0.8) 240%)"
           : "white"
       }
-      // mr={"20px !important"}
-      // flexShrink={0}
     >
       <Flex justify="space-between" align="center">
         <Icon as={IconComponent} boxSize={6} color="gray.700" />
@@ -216,7 +213,6 @@ export const NotificationCarousel: React.FC = () => {
         autoPlay={true}
         autoPlaySpeed={3000}
         centerMode={false}
-        // partialVisible={true}
         removeArrowOnDeviceType={["xl", "lg", "md", "sm", "base", "xs"]}
         customTransition="transform 300ms ease-in-out"
         transitionDuration={300}
@@ -254,6 +250,22 @@ export const NotificationCarousel: React.FC = () => {
         style={{
           // filter: "blur(10px)",
           background: "linear-gradient(to right, transparent, black)",
+
+          // borderTopRightRadius: "16px",
+          // borderBottomRightRadius: "16px",
+        }}
+      />
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        h="100%"
+        w="60px"
+        pointerEvents="none"
+        borderRadius="xl"
+        style={{
+          filter: "blur(20px)",
+          background: "linear-gradient(to left, transparent, rgba(0,0,0,0.5))",
 
           // borderTopRightRadius: "16px",
           // borderBottomRightRadius: "16px",

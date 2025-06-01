@@ -46,7 +46,7 @@ const App: React.FC = () => {
         <Container
           maxW="container.xl"
           px={0}
-          py={{ base: 6, lg: 8 }}
+          py={{ base: 6, lg: 20 }}
           h="full"
           display="flex"
           flexDirection="column"
@@ -131,9 +131,9 @@ const App: React.FC = () => {
             <Box pr={{ base: 4, sm: 4, md: 8, lg: 8, xl: 12 }}>
               <Heading
                 as="h2"
-                fontSize={{ base: "xl", lg: "2xl" }}
-                fontWeight="semibold"
-                color="white"
+                fontSize={{ base: "xl", lg: "25px" }}
+                fontWeight={500}
+                color="#F2F2F2"
                 textAlign="right"
                 mb={4}
                 fontFamily="Inter"
